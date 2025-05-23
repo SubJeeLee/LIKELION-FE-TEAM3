@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import TeamCard from "../components/TeamCard";
 import { mockMembers } from "../mockData";
+import { useMemberStore } from "../store/zustand";
 
 export default function Home() {
-  const [members, setMembers] = useState(mockMembers);
+  const { members, setMembers } = useMemberStore();
+
+  // 앱 시작시 한 번만 mock 데이터 저장
+  useEffect(() => {
+    setMembers(mockMembers);
+  }, [setMembers]);
 
   return (
     <div>
