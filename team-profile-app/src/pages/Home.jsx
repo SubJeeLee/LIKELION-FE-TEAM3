@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TeamCard from "../components/TeamCard";
 import TeamModal from "../components/TeamModal";
+import "../components/DarkModeToggle.css";
 import { useMemberStore } from "../store/zustand";
 import { mockMembers } from "../mockData";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Home() {
   const { members, setMembers } = useMemberStore();
   const [selected, setSelected] = useState(null);
+  const { mode, setMode } = useContext(ThemeContext);
 
   useEffect(() => {
     setMembers(mockMembers);
@@ -14,6 +17,12 @@ export default function Home() {
 
   return (
     <div>
+      <button
+        className="darkmode-toggle-btn"
+        onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+      >
+        {mode === "dark" ? "라이트모드" : "다크모드"}
+      </button>
       <h2>우리 팀원들</h2>
       <div style={{ display: "flex", gap: "16px" }}>
         {members.map((member) => (

@@ -1,12 +1,14 @@
 import React from "react";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import "./theme/light.css";
+import "./theme/dark.css";
 
 function App() {
   return (
-    <div>
+    <ThemeProvider>
       <Home />
-    </div>
+    </ThemeProvider>
   );
 }
-
 export default App;

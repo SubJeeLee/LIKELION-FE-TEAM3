@@ -1,4 +1,6 @@
 .team-card {
+  background: var(--card-bg);
+  color: var(--text-color);
   border: 1px solid #eee;
   border-radius: 10px;
   padding: 20px;

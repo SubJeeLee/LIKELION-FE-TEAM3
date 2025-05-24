@@ -1,0 +1,13 @@
+:root,
+body.light {
+  --bg-color: #fafbfc;
+  --text-color: #222;
+  --card-bg: #fff;
+  --accent: #3479e2;
+  --button-bg: black;
+  --button-text: white; /* 검정 */
+}
+body.light {
+  background: var(--bg-color);
+  color: var(--text-color);
+}

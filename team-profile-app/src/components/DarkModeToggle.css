@@ -1,0 +1,11 @@
+.darkmode-toggle-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--accent);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin-bottom: 24px;
+}
