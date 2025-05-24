@@ -1,11 +1,11 @@
 import React from "react";
 import { useMemberStore } from "../store/zustand";
 
-export default function TeamCard({ member }) {
+export default function TeamCard({ member, onClick }) {
   const { toggleLike } = useMemberStore();
 
   return (
-    <div className="team-card">
+    <div className="team-card" onClick={onClick} style={{ cursor: "pointer" }}>
       <h3>{member.name}</h3>
       <p>
         <b>{member.position}</b>
@@ -22,7 +22,11 @@ export default function TeamCard({ member }) {
       </p>
       <p style={{ fontSize: 14, margin: "8px 0" }}>{member.description}</p>
       <button
-        onClick={() => toggleLike(member.id)}
+        onClick={(e) => {
+          // 하트 클릭시 모달 방지
+          e.stopPropagation();
+          toggleLike(member.id);
+        }}
         style={{
           background: "none",
           border: "none",
