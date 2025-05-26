@@ -1,44 +1,49 @@
 import React from "react";
 import { useMemberStore } from "../store/zustand";
+import "./TeamCard.css";
 
 export default function TeamCard({ member, onClick }) {
-  const { toggleLike } = useMemberStore();
+  const { toggleLike, interests, addInterest } = useMemberStore();
+  const alreadyAdded = interests.some((m) => m.id === member.id);
 
   return (
-    <div className="team-card" onClick={onClick} style={{ cursor: "pointer" }}>
-      <h3>{member.name}</h3>
-      <p>
+    <div className="team-card" onClick={onClick}>
+      <h3 className="member-name">{member.name}</h3>
+      <p className="member-position">
         <b>{member.position}</b>
       </p>
-      <p>
+      <p className="skills">
         {member.skills.map((skill, idx) => (
-          <span
-            key={idx}
-            style={{ marginRight: 4, fontSize: 12, color: "#888" }}
-          >
+          <span key={idx} className="skill-tag">
             #{skill}
           </span>
         ))}
       </p>
-      <p style={{ fontSize: 14, margin: "8px 0" }}>{member.description}</p>
-      <button
-        onClick={(e) => {
-          // 하트 클릭시 모달 방지
-          e.stopPropagation();
-          toggleLike(member.id);
-        }}
-        style={{
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "18px",
-          color: member.likes ? "red" : "#aaa",
-        }}
-        aria-label="좋아요"
-      >
-        ♥
-      </button>
-      <span style={{ marginLeft: 6 }}>{member.likes}</span>
+      <p className="member-desc">{member.description}</p>
+      <div className="team-card-bottom-row">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleLike(member.id);
+          }}
+          className={`like-btn${member.likes ? " liked" : ""}`}
+          aria-label="좋아요"
+        >
+          ♥
+        </button>
+        <span className="like-count">{member.likes}</span>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            addInterest(member);
+          }}
+          disabled={alreadyAdded}
+          className="team-card-add-btn"
+          aria-label="관심 목록에 추가"
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,21 @@
+:root[color-theme="light"] {
+  --surface-default: #f2f0ee;
+  --btn-default: #ffffff;
+  --btn-svg-hover: #ffa500;
+  --text-color: #222;
+  --card-bg: #fff;
+}
+
+:root[color-theme="dark"] {
+  --surface-default: #17171c;
+  --btn-default: #23232b;
+  --btn-svg-hover: gold;
+  --text-color: #fff;
+  --card-bg: #23232b;
+}
+
+body {
+  background-color: var(--surface-default);
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+}

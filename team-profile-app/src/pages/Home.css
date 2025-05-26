@@ -1,0 +1,138 @@
+:root[color-theme="light"] {
+  --surface-default: #f2f0ee;
+  --btn-default: #ffffff;
+  --btn-svg-hover: #ffa500;
+  --text-color: #222;
+  --card-bg: #fff;
+  --card-border: #eee;
+  --accent: #3479e2;
+}
+
+:root[color-theme="dark"] {
+  --surface-default: #17171c;
+  --btn-default: #23232b;
+  --btn-svg-hover: gold;
+  --text-color: #fff;
+  --card-bg: #23232b;
+  --card-border: #333;
+  --accent: #3479e2;
+}
+
+/* 글로벌 */
+body {
+  background-color: var(--surface-default);
+  color: var(--text-color);
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  margin: 0;
+  transition: background-color 0.4s, color 0.3s;
+}
+
+.home-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px 50px 20px;
+  box-sizing: border-box;
+}
+
+.home-root h2,
+.home-root h3,
+.addform-error {
+  text-align: center;
+  width: 100%;
+}
+
+.interest-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center; /* ← 추가 */
+  width: 100%;
+  margin-bottom: 40px;
+}
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-items: center; /* 카드 가운데 정렬 */
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* 관심사 리스트 */
+.interest-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.interest-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 11px 19px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid var(--card-border);
+}
+
+/* 관심사 삭제 버튼 */
+.interest-remove-btn {
+  background: linear-gradient(135deg, #e44 40%, #fa7070 100%);
+  color: #fff;
+  border: none;
+  width: 10px;
+  height: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(234, 68, 68, 0.13), 0 0.5px 2px rgba(0, 0, 0, 0.06);
+  transition: background 0.18s, box-shadow 0.16s, transform 0.13s;
+  outline: none;
+  border: 1.2px solid transparent;
+}
+.interest-remove-btn:hover,
+.interest-remove-btn:focus {
+  background: linear-gradient(135deg, #d72e2e 50%, #ff4444 100%);
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 2.5px 12px rgba(234, 68, 68, 0.19), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1.2px solid #ffbbbb;
+}
+.interest-remove-btn:active {
+  transform: scale(0.96);
+  background: linear-gradient(135deg, #b81515 40%, #e44 100%);
+}
+.interest-remove-btn:disabled {
+  background: #ffe6e6;
+  color: #bbb;
+  cursor: not-allowed;
+  opacity: 0.45;
+  border: 1.2px solid #f3cccc;
+  box-shadow: none;
+}
+
+/* 반응형 */
+@media (max-width: 700px) {
+  .team-list {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .team-card {
+    min-width: 0;
+    padding: 15px 9px 18px 9px;
+  }
+  .interest-list {
+    gap: 8px;
+  }
+}

@@ -1,8 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import "./theme/light.css";
-import "./theme/dark.css";
+import "./theme/theme.css";
 
 function App() {
   return (

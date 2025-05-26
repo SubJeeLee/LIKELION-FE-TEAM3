@@ -14,7 +14,7 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  background: var(--bg-color);
+  background: var(--bg-color, #fafbfc); /* var 사용 시 기본값도 같이 */
   color: var(--text-color);
   transition: border 0.15s;
   outline: none;
@@ -43,4 +43,28 @@
   color: #e44;
   margin-left: 10px;
   font-size: 0.98rem;
+}
+
+/* --- 반응형 추가 --- */
+@media (max-width: 700px) {
+  .addform-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 6vw;
+    margin-bottom: 20px;
+  }
+  .addform-container input[type="text"] {
+    font-size: 0.98rem;
+    padding: 8px 10px;
+  }
+  .addform-container button[type="submit"] {
+    font-size: 0.97rem;
+    padding: 8px 0;
+  }
+  .addform-error {
+    margin-left: 0;
+    margin-top: 2px;
+    font-size: 0.96rem;
+  }
 }
