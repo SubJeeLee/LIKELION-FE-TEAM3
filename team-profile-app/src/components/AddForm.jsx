@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import "./AddForm.css";
 
+/**
+ * AddForm 컴포넌트
+ * -------------------------------------
+ * - 새 팀원 정보를 입력받아 추가하는 폼 UI입니다.
+ * - 이름, 포지션, 스킬, 한 줄 자기소개를 입력하고
+ *   '추가' 버튼을 누르면 상위 컴포넌트에 데이터를 전달합니다.
+ * - 폼 검증(이름/포지션 필수) 및 입력 초기화도 포함합니다.
+ * -------------------------------------
+ */
+
 export default function AddForm({ onAdd }) {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");

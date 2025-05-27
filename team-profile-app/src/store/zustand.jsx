@@ -1,3 +1,20 @@
+/**
+ * zustand.js
+ * -------------------------------------------------------
+ * 팀원 관리 앱의 상태 관리를 담당하는 zustand 스토어 정의 파일입니다.
+ *
+ * 주요 관리 데이터 및 기능:
+ *  - 팀원 목록 (members)
+ *  - 팀원 추가/수정 (setMembers)
+ *  - 좋아요 토글 기능 (toggleLike)
+ *  - 관심사(관심 팀원) 목록 (interests)
+ *  - 관심사 추가/제거 (addInterest, removeInterest)
+ *
+ * 이 스토어는 React 컴포넌트 어디서든 useMemberStore()로
+ * 상태와 관련 함수들을 바로 사용할 수 있도록 해줍니다.
+ * -------------------------------------------------------
+ */
+
 import { create } from "zustand";
 
 export const useMemberStore = create((set) => ({
